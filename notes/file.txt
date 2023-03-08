@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+void swap(int *a, int *b) {
+  int temp = *a;
+  *a = *b;
+  *b = temp;
+}
+
+int main()
+{
+    int set[] = {2, 4, 1, 10, 4, 7, 30, 1};
+    int n = sizeof(set) / sizeof(int);
+    int i, j;
+    
+    for(i = 1; i < n; i++) {
+        j = i;
+        while (j > 0 && set[j - 1] > set[j]) {
+            set[j] = set[j - 1];
+            j--;
+        }
+        set[j] = set[i];
+    }
+    
+    for(i = 0; i < n; i++)
+        printf("%d\t", set[i]);
+
+    return 0;
+}
